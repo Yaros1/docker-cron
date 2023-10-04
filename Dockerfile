@@ -9,7 +9,7 @@ RUN apt-get update \
 
 COPY crontab /hello-cron
 COPY entrypoint.sh /entrypoint.sh
-
+RUN export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 RUN crontab hello-cron
 RUN chmod +x entrypoint.sh
 
